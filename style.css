@@ -1,0 +1,217 @@
+:root {
+    --header-height: 48px;
+
+    --editor-default-width: max(166.7px, max(414px, 25%));
+    --horizontal-dragger-width: 10px;
+
+    --toolbar-height: 32px;
+    --codemirror-default-height: 50%;
+    --vertical-dragger-height: 16px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex; /* change position-property to make z-index have effect on .header */
+    flex-direction: column;
+}
+
+* { box-sizing: border-box; }
+
+/* HEADER */
+
+.header {
+    width: 100%;
+    height: var(--header-height);
+
+    display: flex;
+    align-items: center;
+
+    z-index: 3;
+}
+
+.header-item {
+    margin: 8px;
+}
+
+.header-item:first-child {
+    margin: calc((var(--header-height) - 36px) / 2);
+}
+
+.header-item:nth-child(2) {
+    margin-left: auto;
+}
+
+.header-button {
+    padding: 0;
+
+    width: 32px;
+    height: 32px;
+
+    cursor: pointer;
+}
+
+.header-button div {
+    width: 100%;
+    height: 100%;
+}
+
+.header-button svg {
+    width: 55%;
+    height: 55%;
+}
+
+/* FRAME */
+
+.frame {
+    width: 100%;
+    height: calc(100% - var(--header-height));
+
+    display: flex;
+}
+
+.editor-panel {
+    width: var(--editor-default-width);
+    height: 100%;
+
+    z-index: 1;
+}
+
+.horizontal-resizer {
+    position: relative;
+
+    width: 0;
+    height: 100%;
+
+    z-index: 2;
+}
+
+.horizontal-dragger {
+    position: absolute;
+
+    left: calc((-0.5) * var(--horizontal-dragger-width));
+
+    width: var(--horizontal-dragger-width);
+    height: 100%;
+
+    cursor: ew-resize;
+}
+
+.canvas-panel {
+    position: relative;
+
+    width: calc(100% - var(--editor-default-width));
+    height: 100%;
+
+    z-index: 0;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.render-style-button {
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    margin: 8px;
+}
+
+.render-style-button:disabled {
+    pointer-events: none;
+}
+
+/* EDITOR PANEL */
+
+.toolbar {
+    width: 100%;
+    height: var(--toolbar-height);
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.tool {
+    margin: calc(0.125 * var(--toolbar-height));
+
+    width: calc(0.75 * var(--toolbar-height));
+    height: calc(0.75 * var(--toolbar-height));
+
+    min-width: min-content;
+
+    flex-shrink: 0;
+
+    user-select: none;
+}
+
+.tool:last-child {
+    margin-left: auto;
+}
+
+.tool svg {
+    width: 60%;
+    height: 60%;
+}
+
+.vertical-panel-layout {
+    width: 100%;
+    height: calc(100% - var(--toolbar-height));
+}
+
+.codemirror-panel {
+    width: 100%;
+    height: var(--codemirror-default-height);
+}
+
+.vertical-dragger {
+    width: 100%;
+    height: var(--vertical-dragger-height);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: ns-resize;
+}
+
+.vertical-dragger::after {
+    content: '';
+
+    width: clamp(0px, 100px, calc(100% - 0.75 * var(--vertical-dragger-height)));
+    height: 25%;
+}
+
+.log-panel {
+    width: 100%;
+    height: calc(100% - var(--vertical-dragger-height) - var(--codemirror-default-height));
+}
+
+/* UTILITIES */
+
+.svg-container {
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+.CodeMirror {
+    font-size: 1.125rem !important;
+}

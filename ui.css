@@ -1,0 +1,287 @@
+:root {
+    --box-shadow-header: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    --box-shadow-editor-panel: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 4px 5px 0 rgba(0, 0, 0, 0.14);
+    
+    /* GITHUB VARIABLES */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", /*"Noto Sans",*/ Helvetica, Arial, sans-serif, /*"Apple Color Emoji",*/ "Segoe UI Emoji";
+
+    --gh-borderWidth-thin: 1px;
+    --gh-borderRadius-medium: 6px;
+
+    /* GITHUB COLORS LIGHT */
+    --l-gh-color: #1f2328;
+    --l-gh-color-muted: #656d76;
+    --l-gh-color-a: #0969da;
+
+    --l-gh-bg-header: #f6f8fa;
+    --l-gh-color-border-default: #d0d7de;
+
+    --l-gh-header-button-color: var(--l-gh-bg-header);
+    --l-gh-header-button-color-hover: rgb(234, 237, 241) /*rgba(208, 215, 222, 0.32)*/;
+    --l-gh-header-button-color-active: rgb(228, 232, 236) /*rgba(208, 215, 222, 0.48)*/;
+
+    --l-gh-header-button-border-color: var(--l-gh-color-border-default);
+    --l-gh-header-button-border-color-hover: rgb(204, 207, 210) /*rgba(31, 35, 40, 0.15)*/;
+    --l-gh-header-button-border-color-active: rgb(204, 207, 210) /*rgba(31, 35, 40, 0.15)*/;
+
+    --l-gh-header-button-shadow: 0 1px 0 rgba(31, 35, 40, 0.04);
+    --l-gh-header-button-inset-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+
+    /* GITHUB COLORS DARK */
+    --d-gh-color: #e6edf3;
+    --d-gh-color-muted: #7d8590;
+    --d-gh-color-a: #2f81f7;
+
+    --d-gh-bg-header: #010409;
+    --d-gh-color-border-default: #30363d;
+
+    --d-gh-header-button-color: var(--d-gh-bg-header);
+    --d-gh-header-button-color-hover: rgb(23, 27, 32) /*rgba(177, 186, 196, 0.12)*/;
+    --d-gh-header-button-color-active: rgb(36, 40, 46) /*rgba(177, 186, 196, 0.2)*/;
+
+    --d-gh-header-button-border-color: var(--d-gh-color-border-default);
+    --d-gh-header-button-border-color-hover: #8b949e;
+    --d-gh-header-button-border-color-active: #6e7681;
+
+    --d-gh-header-button-shadow: none;
+    --d-gh-header-button-inset-shadow: none;
+
+    /* INTELLIJ COLORS LIGHT */
+    --l-ij-color: #000000;
+    --l-ij-svg-fill: #6e6e6e;
+
+    --l-ij-bg-l: #f4f4f4;
+    --l-ij-bg-d: #ffffff;
+
+    --l-ij-bg-l-active:#e2e6ec;
+
+    --l-ij-accent: #a8b1c0;
+    --l-ij-accent-active: #4083c9;
+
+    --l-ij-border-l: #d1d1d1;
+    --l-ij-border-l-active: var(--l-ij-accent-active);
+
+    --l-ij-tool-hover: #d9d9d9;
+    --l-ij-tool-active: #bdbdbd;
+
+    /* INTELLIJ COLORS DARK */
+    --d-ij-color: #bbbbbb;
+    --d-ij-svg-fill: #afb1b3;
+
+    --d-ij-bg-l: #3c3f41;
+    --d-ij-bg-d: #2b2b2b;
+
+    --d-ij-bg-l-active:#3b4754;
+
+    --d-ij-accent: #747a80;
+    --d-ij-accent-active: #4a88c7;
+
+    --d-ij-border-l: #515151;
+    --d-ij-border-l-active: var(--d-ij-accent-active);
+
+    --d-ij-tool-hover: #353739;
+    --d-ij-tool-active: #2d2f30;
+}
+
+.light {
+    --theme: white;
+
+    /* GITHUB COLORS */
+    --gh-color: var(--l-gh-color);
+    --gh-color-muted: var(--l-gh-color-muted);
+    --gh-color-a: var(--l-gh-color-a);
+
+    --gh-bg-header: var(--l-gh-bg-header);
+    --gh-color-border-default: var(--l-gh-color-border-default);
+
+    --gh-header-button-color: var(--l-gh-header-button-color);
+    --gh-header-button-color-hover: var(--l-gh-header-button-color-hover);
+    --gh-header-button-color-active: var(--l-gh-header-button-color-active);
+
+    --gh-header-button-border-color: var(--l-gh-header-button-border-color);
+    --gh-header-button-border-color-hover: var(--l-gh-header-button-border-color-hover);
+    --gh-header-button-border-color-active: var(--l-gh-header-button-border-color-active);
+
+    --gh-header-button-shadow: var(--l-gh-header-button-shadow);
+    --gh-header-button-inset-shadow: var(--l-gh-header-button-inset-shadow);
+
+    /* INELLIJ COLORS */
+    --ij-color: var(--l-ij-color);
+    --ij-svg-fill: var(--l-ij-svg-fill);
+
+    --ij-bg-l: var(--l-ij-bg-l);
+    --ij-bg-d: var(--l-ij-bg-d);
+
+    --ij-bg-l-active: var(--l-ij-bg-l-active);
+
+    --ij-accent: var(--l-ij-accent);
+    --ij-accent-active: var(--l-ij-accent-active);
+    
+    --ij-border-l: var(--l-ij-border-l);
+    --ij-border-l-active: var(--l-ij-border-l-active);
+
+    --ij-tool-hover: var(--l-ij-tool-hover);
+    --ij-tool-active: var(--l-ij-tool-active);
+}
+
+.dark {
+    --theme: black;
+
+    /* GITHUB COLORS */
+    --gh-color: var(--d-gh-color);
+    --gh-color-muted: var(--d-gh-color-muted);
+    --gh-color-a: var(--d-gh-color-a);
+
+    --gh-bg-header: var(--d-gh-bg-header);
+    --gh-color-border-default: var(--d-gh-color-border-default);
+
+    --gh-header-button-color: var(--d-gh-header-button-color);
+    --gh-header-button-color-hover: var(--d-gh-header-button-color-hover);
+    --gh-header-button-color-active: var(--d-gh-header-button-color-active);
+
+    --gh-header-button-border-color: var(--d-gh-header-button-border-color);
+    --gh-header-button-border-color-hover: var(--d-gh-header-button-border-color-hover);
+    --gh-header-button-border-color-active: var(--d-gh-header-button-border-color-active);
+
+    --gh-header-button-shadow: var(--d-gh-header-button-shadow);
+    --gh-header-button-inset-shadow: var(--d-gh-header-button-inset-shadow);
+
+    /* INELLIJ COLORS */
+    --ij-color: var(--d-ij-color);
+    --ij-svg-fill: var(--d-ij-svg-fill);
+
+    --ij-bg-l: var(--d-ij-bg-l);
+    --ij-bg-d: var(--d-ij-bg-d);
+
+    --ij-bg-l-active: var(--d-ij-bg-l-active);
+
+    --ij-accent: var(--d-ij-accent);
+    --ij-accent-active: var(--d-ij-accent-active);
+    
+    --ij-border-l: var(--d-ij-border-l);
+    --ij-border-l-active: var(--d-ij-border-l-active);
+
+    --ij-tool-hover: var(--d-ij-tool-hover);
+    --ij-tool-active: var(--d-ij-tool-active);
+}
+
+body {
+    color: var(--gh-color);
+    background-color: var(--theme);
+} 
+
+svg {
+    fill: var(--gh-color);
+}
+
+a {
+    color: var(--gh-color-a);
+
+    font-size: 20px;
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* HEADER */
+
+.header {
+    background-color: var(--gh-bg-header);
+
+    box-shadow: inset 0 calc((-1) * var(--gh-borderWidth-thin)) var(--gh-color-border-default), var(--box-shadow-header);
+}
+
+.header-button {
+    background-color: var(--gh-header-button-color);
+
+    border: var(--gh-borderWidth-thin) solid var(--gh-header-button-border-color);
+    border-radius: var(--gh-borderRadius-medium);
+
+    box-shadow: var(--gh-header-button-shadow), var(--gh-header-button-inset-shadow);
+}
+
+.header-button:hover {
+    background-color: var(--gh-header-button-color-hover);
+    border-color: var(--gh-header-button-border-color-hover);
+}
+
+.header-button:active {
+    background-color: var(--gh-header-button-color-active);
+    border-color: var(--gh-header-button-border-color-active);
+}
+
+/* FRAME */
+
+.editor-panel {
+    box-shadow: 1px 0 var(--ij-border-l), var(--box-shadow-editor-panel);
+}
+
+.frame:has(.horizontal-dragger:active) > .editor-panel {
+    box-shadow: 1px 0 var(--ij-border-l-active), var(--box-shadow-editor-panel);
+}
+
+.canvas-panel {
+    background-color: var(--theme);
+}
+
+.render-style-button:disabled {
+    opacity: 0.5;
+}
+
+/* EDITOR PANEL */
+
+.toolbar {
+    background-color: var(--ij-bg-l);
+
+    box-shadow: inset 0 -1px var(--ij-border-l);
+}
+
+.tool {
+    color: var(--ij-color);
+
+    background-color: var(--ij-bg-d);
+
+    border: none;
+    border-radius: 3px;
+}
+
+.tool:hover {
+    background-color: var(--ij-tool-hover);
+}
+
+.tool:active {
+    background-color: var(--ij-tool-active);
+}
+
+.tool svg {
+    fill: var(--ij-svg-fill);
+}
+
+.codemirror-panel {
+    background-color: var(--ij-bg-d);
+}
+
+.vertical-dragger {
+    background-color: var(--ij-bg-l);
+}
+
+.vertical-dragger:active {
+    background-color: var(--ij-bg-l-active);
+}
+
+.vertical-dragger::after {
+    background-color: var(--ij-accent);
+    border-radius: calc(var(--vertical-dragger-height) / 8);
+}
+
+.vertical-dragger:active::after {
+    background-color: var(--ij-accent-active);
+}
+
+.log-panel {
+    background-color: var(--theme);
+}

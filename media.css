@@ -1,0 +1,67 @@
+html, body {
+    height: 100% !important; /* fix mobile devices calculating navigation bar height into viewport height */
+    overflow: hidden; /* fix overflow occuring with window height less than header height and dragger at maximum extend */
+}
+
+body {
+    touch-action: none !important; /* prevent pointercancel event from being fired on mobile devices */
+    overscroll-behavior: none !important; /* prevent website reload on swipe-down on mobile devices */
+}
+
+canvas {
+    display: flex; /* fix canvas shifting downwards with small heights */
+}
+
+@media (orientation: landscape) {
+    .editor-panel {
+        height: 100% !important;
+    }
+
+    .canvas-panel {
+        height: 100% !important;
+    }
+}
+
+@media (orientation: portrait) {
+    :root {
+        --canvas-default-height: 50%;
+        --box-shadow-editor-panel: -2px 0 4px -1px rgba(0, 0, 0, 0.2), -1px 0 10px 0 rgba(0, 0, 0, 0.12), -4px 0 5px 0 rgba(0, 0, 0, 0.14);
+    }
+
+    .frame {
+        flex-direction: column-reverse;
+    }
+
+    .editor-panel {
+        width: 100% !important;
+        height: calc(100% - var(--canvas-default-height));
+    }
+
+    .horizontal-resizer {
+        width: 100%;
+        height: 0;
+    }
+
+    .horizontal-dragger {
+        left: 0;
+        top: calc((-0.5) * var(--horizontal-dragger-width));
+
+        width: 100%;
+        height: var(--horizontal-dragger-width);
+
+        cursor: ns-resize;
+    }
+
+    .canvas-panel {
+        width: 100% !important;
+        height: var(--canvas-default-height);
+    }
+
+    .editor-panel {
+        box-shadow: 0 -1px var(--ij-border-l), var(--box-shadow-editor-panel); 
+    }
+    
+    .frame:has(.horizontal-dragger:active) > .editor-panel {
+        box-shadow: 0 -1px var(--ij-border-l-active), var(--box-shadow-editor-panel);
+    }
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathBox</title>
+
+    <link rel="icon" type="image/x-icon" href="/icon.ico">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="ui.css">
+    <link rel="stylesheet" type="text/css" href="media.css">
+    <link rel="stylesheet" type="text/css" href="log/log.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css" integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/darcula.min.css" integrity="sha512-kqCOYFDdyQF4JM8RddA6rMBi9oaLdR0aEACdB95Xl1EgaBhaXMIe8T4uxmPitfq4qRmHqo+nBU2d1l+M4zUx1g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gl-matrix/3.4.2/gl-matrix-min.min.js" integrity="sha512-cR3oS5mKRWD+38vYi1CNJk1DLpi104ovuQBuVv9p7nNxeqzSNiHzlboK2BZQybmpTi1QNnQ5unYajpURcMjeZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js" integrity="sha512-8RnEqURPUc5aqFEN04aQEiPlSAdE0jlFS/9iGgUyNtwFnSKCXhmB6ZTNl7LnDtDWKabJIASzXrzD0K+LYexU9g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.min.js" integrity="sha512-I6CdJdruzGtvDyvdO4YsiAq+pkWf2efgd1ZUSK2FnM/u2VuRASPC7GowWQrWyjxCZn6CT89s3ddGI+be0Ak9Fg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" integrity="sha512-LQNxIMR5rXv7o+b1l8+N1EZMfhG7iFZ9HhnbJkTp4zjNr5Wvst75AqUeFDxeRUa7l5vEDyUiAip//r+EFLLCyA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" integrity="sha512-iWiuBS5nt6r60fCz26Nd0Zqe0nbk1ZTIQbl3Kv7kYsX+yKMUFHzjaH2+AnM6vp2Xs+gNmaBAVWJjSmuPw76Efg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="index.js" type="module"></script>
+</head>
+<body class="light">
+    <div id="header" class="header">
+        <div class="header-item svg-container">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 16 16">
+                <rect width="16" height="16" fill="#087cfa"/>
+                <rect width="14" height="14" fill="#000" x="1"  y="1"/>
+                <rect width="12" height="12" fill="#fff" x="2"  y="2"/>
+                <rect width="10" height="10" fill="#000" x="3"  y="3"/>
+                <rect width="8"  height="3"  fill="#000" x="4"  y="1"/>
+                <rect width="8"  height="3"  fill="#000" x="4"  y="12"/>
+                <rect width="1"  height="3"  fill="#fff" x="5"  y="4"/>
+                <rect width="1"  height="3"  fill="#fff" x="10" y="9"/>
+                <rect width="1"  height="1"  fill="#fff" x="5"  y="8"/>
+                <rect width="1"  height="2"  fill="#fff" x="4"  y="9"/>
+                <rect width="1"  height="1"  fill="#fff" x="5"  y="11"/>
+                <rect width="1"  height="2"  fill="#fff" x="6"  y="9"/>
+                <rect width="1"  height="1"  fill="#fff" x="10" y="4"/>
+                <rect width="1"  height="2"  fill="#fff" x="9"  y="5"/>
+                <rect width="1"  height="1"  fill="#fff" x="10" y="7"/>
+                <rect width="1"  height="2"  fill="#fff" x="11" y="5"/>
+            </svg>
+        </div>
+
+        <div class="header-item">
+            <button id="theme-button" class="header-button" type="button">
+                <div id="theme-button-sun" class="svg-container">
+                    <!-- https://fontawesome.com/icons/sun?f=classic&s=solid -->
+                    <svg height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M361.5 1.2c5 2.1 8.6 6.6 9.6 11.9L391 121l107.9 19.8c5.3 1 9.8 4.6 11.9 9.6s1.5 10.7-1.6 15.2L446.9 256l62.3 90.3c3.1 4.5 3.7 10.2 1.6 15.2s-6.6 8.6-11.9 9.6L391 391 371.1 498.9c-1 5.3-4.6 9.8-9.6 11.9s-10.7 1.5-15.2-1.6L256 446.9l-90.3 62.3c-4.5 3.1-10.2 3.7-15.2 1.6s-8.6-6.6-9.6-11.9L121 391 13.1 371.1c-5.3-1-9.8-4.6-11.9-9.6s-1.5-10.7 1.6-15.2L65.1 256 2.8 165.7c-3.1-4.5-3.7-10.2-1.6-15.2s6.6-8.6 11.9-9.6L121 121 140.9 13.1c1-5.3 4.6-9.8 9.6-11.9s10.7-1.5 15.2 1.6L256 65.1 346.3 2.8c4.5-3.1 10.2-3.7 15.2-1.6zM160 256a96 96 0 1 1 192 0 96 96 0 1 1 -192 0zm224 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0z"/></svg>
+                </div>
+                <div id="theme-button-moon" class="svg-container" style="display: none;">
+                    <!-- https://fontawesome.com/icons/moon?f=classic&s=solid -->
+                    <svg height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M223.5 32C100 32 0 132.3 0 256S100 480 223.5 480c60.6 0 115.5-24.2 155.8-63.4c5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6c-96.9 0-175.5-78.8-175.5-176c0-65.8 36-123.1 89.3-153.3c6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"/></svg>
+                </div>
+            </button>
+        </div>
+
+        <div class="header-item">
+            <a href="https://github.com/soerenfriese/mathbox/wiki" target="_blank">Docs</a>
+        </div>
+
+        <div class="header-item">
+            <a href="https://github.com/soerenfriese/mathbox" target="_blank" class="svg-container">
+                <svg width="32" height="32" viewBox="0 0 16 16">
+                    <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <div id="frame" class="frame">
+        <div id="editor-panel" class="editor-panel">
+            <div class="toolbar">
+                <button id="run-button" class="tool svg-container" type="button">
+                    <!-- https://fontawesome.com/icons/play?f=classic&s=solid -->
+                    <svg height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                </button>
+                <button id="time-button" class="tool" type="button">00:00.0</button>
+                <button id="amplifier-button" class="tool" type="button">x1.0</button>
+                <button id="log-button" class="tool svg-container" type="button">
+                    <!-- https://fontawesome.com/icons/broom?f=classic&s=solid -->
+                    <svg height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M566.6 54.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192-34.7-34.7c-4.2-4.2-10-6.6-16-6.6c-12.5 0-22.6 10.1-22.6 22.6v29.1L364.3 320h29.1c12.5 0 22.6-10.1 22.6-22.6c0-6-2.4-11.8-6.6-16l-34.7-34.7 192-192zM341.1 353.4L222.6 234.9c-42.7-3.7-85.2 11.7-115.8 42.3l-8 8C76.5 307.5 64 337.7 64 369.2c0 6.8 7.1 11.2 13.2 8.2l51.1-25.5c5-2.5 9.5 4.1 5.4 7.9L7.3 473.4C2.7 477.6 0 483.6 0 489.9C0 502.1 9.9 512 22.1 512l173.3 0c38.8 0 75.9-15.4 103.4-42.8c30.6-30.6 45.9-73.1 42.3-115.8z"/></svg>
+                </button>
+            </div>
+            
+            <div id="vertical-panel-layout" class="vertical-panel-layout">
+                <div id="codemirror-panel" class="codemirror-panel">
+                    <div class="wrapper"></div>
+                </div>
+
+                <div id="vertical-dragger" class="vertical-dragger"></div>
+
+                <div id="log-panel" class="log-panel">
+                    <div class="wrapper"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="horizontal-resizer">
+            <div id="horizontal-dragger" class="horizontal-dragger"></div>
+        </div>
+
+        <div id="canvas-panel" class="canvas-panel">
+            <div class="wrapper">
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <button id="render-style-button" class="render-style-button header-button" style="display: none;" type="button" disabled>
+                <div id="render-style-geometry" class="svg-container">
+                    <!-- https://fontawesome.com/icons/circle-nodes?f=classic&s=solid -->
+                    <svg height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M418.4 157.9c35.3-8.3 61.6-40 61.6-77.9c0-44.2-35.8-80-80-80c-43.4 0-78.7 34.5-80 77.5L136.2 151.1C121.7 136.8 101.9 128 80 128c-44.2 0-80 35.8-80 80s35.8 80 80 80c12.2 0 23.8-2.7 34.1-7.6L259.7 407.8c-2.4 7.6-3.7 15.8-3.7 24.2c0 44.2 35.8 80 80 80s80-35.8 80-80c0-27.7-14-52.1-35.4-66.4l37.8-207.7zM156.3 232.2c2.2-6.9 3.5-14.2 3.7-21.7l183.8-73.5c3.6 3.5 7.4 6.7 11.6 9.5L317.6 354.1c-5.5 1.3-10.8 3.1-15.8 5.5L156.3 232.2z"/></svg>
+                </div>
+                <div id="render-style-lighting" class="svg-container" style="display: none;">
+                    <!-- https://fontawesome.com/icons/cube?f=classic&s=solid -->
+                    <svg height="1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M234.5 5.7c13.9-5 29.1-5 43.1 0l192 68.6C495 83.4 512 107.5 512 134.6V377.4c0 27-17 51.2-42.5 60.3l-192 68.6c-13.9 5-29.1 5-43.1 0l-192-68.6C17 428.6 0 404.5 0 377.4V134.6c0-27 17-51.2 42.5-60.3l192-68.6zM256 66L82.3 128 256 190l173.7-62L256 66zm32 368.6l160-57.1v-188L288 246.6v188z"/></svg>
+                </div>
+            </button>
+        </div>
+    </div>
+</body>
+</html>
