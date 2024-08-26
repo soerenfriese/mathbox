@@ -75,7 +75,7 @@ $\vec{i}, \vec{j}, \vec{k}, \vec{l} \in \mathbb R^D$ (Vectors of same dimension 
 
 | 2x2 Matrix Constructors | Result |
 | - | - |
-| `mat2()`                   | $\begin{bmatrix} 0 && 0 \\ 0 && 0 \end{bmatrix}$ |
+| `mat2()`                   | $\begin{bmatrix} 1 && 0 \\ 0 && 1 \end{bmatrix}$ |
 | `mat2(n)`                  | $\begin{bmatrix} n && 0 \\ 0 && n \end{bmatrix}$ |
 | `mat2(m00, m11)`           | $\begin{bmatrix} m_{00} && 0 \\ 0 && m_{11} \end{bmatrix}$ |
 | `mat2(m00, m01, m10, m11)` | $\begin{bmatrix} m_{00} && m_{01} \\ m_{10} && m_{11} \end{bmatrix}$ |
@@ -83,7 +83,7 @@ $\vec{i}, \vec{j}, \vec{k}, \vec{l} \in \mathbb R^D$ (Vectors of same dimension 
 
 | 3x3 Matrix Constructors | Result |
 | - | - |
-| `mat3()`                                            | $\begin{bmatrix} 0 && 0 && 0 \\ 0 && 0 && 0 \\ 0 && 0 && 0 \end{bmatrix}$ |
+| `mat3()`                                            | $\begin{bmatrix} 1 && 0 && 0 \\ 0 && 1 && 0 \\ 0 && 0 && 1 \end{bmatrix}$ |
 | `mat3(n)`                                           | $\begin{bmatrix} n && 0 && 0 \\ 0 && n && 0 \\ 0 && 0 && n \end{bmatrix}$ |
 | `mat3(m00, m11, m22)`                               | $\begin{bmatrix} m_{00} && 0 && 0 \\ 0 && m_{11} && 0 \\ 0 && 0 && m_{22} \end{bmatrix}$
 | `mat3(m00, m01, m02, m10, m11, m12, m20, m21, m22)` | $\begin{bmatrix} m_{00} && m_{01} && m_{02} \\ m_{10} && m_{11} && m_{12} \\ m_{20} && m_{21} && m_{22} \end{bmatrix}$ |
@@ -91,7 +91,7 @@ $\vec{i}, \vec{j}, \vec{k}, \vec{l} \in \mathbb R^D$ (Vectors of same dimension 
 
 | 4x4 Matrix Constructors | Result |
 | - | - |
-| `mat4()`                   | $\begin{bmatrix} 0 && 0 && 0 && 0 \\ 0 && 0 && 0 && 0 \\ 0 && 0 && 0 && 0 \\ 0 && 0 && 0 && 0 \end{bmatrix}$ |
+| `mat4()`                   | $\begin{bmatrix} 1 && 0 && 0 && 0 \\ 0 && 1 && 0 && 0 \\ 0 && 0 && 1 && 0 \\ 0 && 0 && 0 && 1 \end{bmatrix}$ |
 | `mat4(n)`                  | $\begin{bmatrix} n && 0 && 0 && 0 \\ 0 && n && 0 && 0 \\ 0 && 0 && n && 0 \\ 0 && 0 && 0 && n \end{bmatrix}$ |
 | `mat4(m00, m11, m22, m33)` | $\begin{bmatrix} m_{00} && 0 && 0 && 0 \\ 0 && m_{11} && 0 && 0 \\ 0 && 0 && m_{22} && 0 \\ 0 && 0 && 0 && m_{33} \end{bmatrix}$ |
 | `mat4(m00, m01, m02, m03, m10, m11, m12, m13, m20, m21, m22, m23, m30, m31, m32, m33)` | $\begin{bmatrix} m_{00} && m_{01} && m_{02} && m_{03} \\ m_{10} && m_{11} && m_{12} && m_{13} \\ m_{20} && m_{21} && m_{22} && m_{23} \\ m_{30} && m_{31} && m_{32} && m_{33} \end{bmatrix}$ |
@@ -164,6 +164,7 @@ Additionally, there are special interpolation functions for `mat2` and `mat3` th
 
 ## Miscellaneous
 
-| Function | Description |
+| Property Name | Description |
 | - | - |
-| `bounce(t: number): number` | Calculates as `clamp(1.5 - abs(mod(t, 4) - 2.5), 0, 1)` and might be of use with animation loops. The function repeats every 4 units. ![Bounce Graph](graphics/bounce_graph.png)|
+| `bounce(t: number): number` | A function equal to `clamp(1.5 - abs(mod(t, 4) - 2.5), 0, 1)` that might be helpful with animation loops. The function repeats every 4 units. ![Bounce Graph](graphics/bounce_graph.png)|
+| `cartesian2gl` | A `mat3` that transforms the graph back into the OpenGL coordinate system (swaps positve Y with negative Z axis). |

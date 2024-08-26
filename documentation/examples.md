@@ -1,6 +1,6 @@
 Here are a few examples you can get inspiration from:
 
-A simple and interactive rotation matrix animation:
+# Simple and interactive Rotation Matrix Animation
 
 ```javascript
 const { graph } = define('3d')
@@ -14,16 +14,16 @@ addSlider((t) => {
 })
 ```
 
-A basic 2D particle spring physics simulation:
+# Basic 2D Particle Spring Physics Simulation
 
 > Note: Drag to apply movement on the particle.
 
 ```javascript
 const { graph, camera } = define('2d')
 
-const m = 1          // mass
+const m = 1            // mass
 const s = vec2(0.5, 3) // position
-const v = vec2(0)    // velocity
+const v = vec2(0)      // velocity
 
 const anchor = vec2(0, 5)
 const k = 10 // spring constant
@@ -110,7 +110,7 @@ function tick(t, dt) {
 return tick
 ```
 
-The animation from `README.md`:
+# Example Animation from `README.md`
 
 > Note: Use the `lighting` render style.
 
@@ -160,7 +160,9 @@ function tick(t) {
 return tick
 ```
 
-The normal comparison animation from `graph-types.md`:
+![Example Animation](graphics/example_animation.gif)
+
+# Normal Comparison Animation from `graph-types.md`
 
 > Note: Use the `lighting` render style.
 
@@ -190,3 +192,40 @@ function tick(t) {
 
 return tick
 ```
+
+![Normals Comparison](graphics/normals_comparison.gif)
+
+# Example Geometry created in Blender
+
+> Note: This code works with any `.obj` file but may affect performance with larger files.
+
+```javascript
+const { graph, camera } = define('3d')
+
+const source = `` // paste your .obj file data here
+
+const shape = fromOBJ(source)
+
+// adjust rotation as Blender saves vertices with "upwards" being in the positive Y direction
+shape.matrix = mat3_rot(vec3(1, 0, 0), Math.PI / 2)
+
+graph.drawShape(shape, 1)
+
+// adjust camera to face the model's front
+camera.reset()
+camera.yaw = 0
+camera.zoom = 4
+
+// adjust light to face the models's front
+graph.setLightDirection(vec3(1, 2, -4))
+```
+
+## `Hello World!` Text Example
+
+> Note: For own blender projects you can follow these instructions at `Export your file...`.
+
+Open Blender, create a default file and delete the default cube. Create a text element under `Add` > `Text`. Press `Tab` to switch to `Edit Mode`. Write your text, in this case `Hello World!`. Select your text object in the `Outliner` panel, select the `Object` tab and set `Rotation X` to `90°`. Then open the `Data` tab in the `Properties` panel. Adjust `Shape` > `Resolution Preview U` if you want a lower triangle count. Set `Geometry` > `Extrude` to `0.2m` for a 3D effect and `Paragraph` > `Alignment` > `Horizontal` to `Center`. Export your file under `File` > `Export` > `Wavefront (.obj)` and select the folder the file should be saved to. A `.obj` and `.mtl` file will be created. Open the `.obj` file with a text edtior and copy the data (`Ctrl` + `A`, `Ctrl` + `C`). Finally, paste it into the `source` variable in your code (`Ctrl` + `V`).
+
+> Note: Use the `lighting` render style.
+
+![Blender Example](graphics/blender_example.png)

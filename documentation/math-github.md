@@ -216,7 +216,7 @@ $\vec{i}, \vec{j}, \vec{k}, \vec{l} \in \mathbb R^D$ (Vectors of same dimension 
 <td>
 
 ```math
-\begin{bmatrix} 0 && 0 \\ 0 && 0 \end{bmatrix}
+\begin{bmatrix} 1 && 0 \\ 0 && 1 \end{bmatrix}
 ```
 
 </td>
@@ -293,7 +293,7 @@ $\vec{i}, \vec{j}, \vec{k}, \vec{l} \in \mathbb R^D$ (Vectors of same dimension 
 <td>
 
 ```math
-\begin{bmatrix} 0 && 0 && 0 \\ 0 && 0 && 0 \\ 0 && 0 && 0 \end{bmatrix}
+\begin{bmatrix} 1 && 0 && 0 \\ 0 && 1 && 0 \\ 0 && 0 && 1 \end{bmatrix}
 ```
 
 </td>
@@ -370,7 +370,7 @@ $\vec{i}, \vec{j}, \vec{k}, \vec{l} \in \mathbb R^D$ (Vectors of same dimension 
 <td>
 
 ```math
-\begin{bmatrix} 0 && 0 && 0 && 0 \\ 0 && 0 && 0 && 0 \\ 0 && 0 && 0 && 0 \\ 0 && 0 && 0 && 0 \end{bmatrix}
+\begin{bmatrix} 1 && 0 && 0 && 0 \\ 0 && 1 && 0 && 0 \\ 0 && 0 && 1 && 0 \\ 0 && 0 && 0 && 1 \end{bmatrix}
 ```
 
 </td>
@@ -500,6 +500,7 @@ Additionally, there are special interpolation functions for `mat2` and `mat3` th
 
 ## Miscellaneous
 
-| Function | Description |
+| Property Name | Description |
 | - | - |
-| `bounce(t: number): number` | Calculates as `clamp(1.5 - abs(mod(t, 4) - 2.5), 0, 1)` and might be of use with animation loops. The function repeats every 4 units. ![Bounce Graph](graphics/bounce_graph.png)|
+| `bounce(t: number): number` | A function equal to `clamp(1.5 - abs(mod(t, 4) - 2.5), 0, 1)` that might be helpful with animation loops. The function repeats every 4 units. ![Bounce Graph](graphics/bounce_graph.png)|
+| `cartesian2gl` | A `mat3` that transforms the graph back into the OpenGL coordinate system (swaps positve Y with negative Z axis). |
