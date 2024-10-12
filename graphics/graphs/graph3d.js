@@ -50,8 +50,8 @@ export function render(gl, width, height, color, renderStyle, graph, camera) {
     gl.enable(gl.DEPTH_TEST)
     gl.enable(gl.CULL_FACE)
     
-    gl.cullFace(gl.FRONT)
-    gl.frontFace(gl.CW)
+    gl.cullFace(gl.BACK)
+    gl.frontFace(gl.CCW)
 
     glMatrix.mat4.identity(projectionMatrix)
     glMatrix.mat4.perspective(projectionMatrix, camera.fov, width / height, 0.05, 1024)
